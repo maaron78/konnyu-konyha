@@ -248,3 +248,5 @@ details.more[open] summary{margin-bottom:10px}
 .foot .links a{font-weight:700}
 @media print{.top,.foot,.wave,.btns,.rhero .bg,.crumb,.noprint{display:none!important}.rhero{min-height:0;padding:10px 0;background:none;color:#000}.rhero h1{color:#000;text-shadow:none}body{background:#fff}}
 .rhero.short::before{background:linear-gradient(180deg,rgba(31,64,54,.6),rgba(31,64,54,.7) 45%,rgba(31,64,54,.9))}
+@media(min-width:760px){.qgrid.four{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.qgrid.four{grid-template-columns:repeat(4,1fr)}}
