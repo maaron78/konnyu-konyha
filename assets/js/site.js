@@ -17,7 +17,7 @@
     var fr={0.5:'½',1.5:'1½',2.5:'2½',3.5:'3½',0.25:'¼',0.75:'¾'};
     function fmt(n){n=Math.round(n*100)/100;if(fr[n])return fr[n];return String(n%1?Math.round(n*10)/10:n).replace('.',',')}
     function scale(m){d.querySelectorAll('[data-q]').forEach(function(el){
-      var q=parseFloat(el.getAttribute('data-q'))*m;el.textContent=fmt(q)+(el.getAttribute('data-u')?' '+el.getAttribute('data-u'):'')});
+      var q=parseFloat(el.getAttribute('data-q'))*m,q2=el.getAttribute('data-q2'),t=fmt(q);if(q2)t+='-'+fmt(parseFloat(q2)*m);el.textContent=t+(el.getAttribute('data-u')?' '+el.getAttribute('data-u'):'')});
       sb.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-m')==m?'true':'false')})}
     sb.forEach(function(b){b.addEventListener('click',function(){scale(parseFloat(b.getAttribute('data-m')))})});
   }
