@@ -29,7 +29,7 @@
   var fb=d.querySelectorAll('[data-filter] button');
   if(fb.length){fb.forEach(function(b){b.addEventListener('click',function(){
       var m=b.getAttribute('data-m');fb.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
-      d.querySelectorAll('.rc[data-meal]').forEach(function(c){c.hidden=!(m==='*'||c.getAttribute('data-meal')===m)});
+      d.querySelectorAll('.rcx[data-meal]').forEach(function(c){c.hidden=!(m==='*'||c.getAttribute('data-meal')===m)});
       d.querySelectorAll('.mealhead').forEach(function(h){h.hidden=!(m==='*'||h.getAttribute('data-meal')===m)});
     })})}
   var pb=d.querySelector('[data-print]');if(pb)pb.addEventListener('click',function(){window.print()});

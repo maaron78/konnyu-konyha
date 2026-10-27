@@ -266,3 +266,21 @@ details.more[open] summary{margin-bottom:10px}
 .facts.three .fact b{overflow-wrap:anywhere}
 
 @media(max-width:899px){.nav{flex-wrap:wrap;overflow:visible;justify-content:center;gap:2px 4px}.nav a,.nav span{padding:6px 11px;font-size:.88rem}}
+
+/* v4: Kedvenc hearts, favourites view, 9-item nav */
+.rcx{position:relative;display:flex}
+.rcx>a.rc{flex:1;min-width:0}
+.rcx[hidden]{display:none}
+.kedvenc{--hs:var(--deep);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;color:var(--deep);font:800 .93rem var(--sans);-webkit-tap-highlight-color:transparent}
+.kedvenc .ic{width:1.35em;height:1.35em;vertical-align:0;transition:transform .15s}
+.kedvenc:active .ic{transform:scale(.88)}
+.kedvenc[aria-pressed=true]{--hf:var(--amber);--hs:var(--amber-d);color:var(--amber-d)}
+.rcx .kedvenc{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 1px 6px rgba(31,64,54,.22);z-index:2}
+.rcx .kedvenc .kl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kedvenc.pill{margin-top:14px;min-height:44px;padding:0 18px 0 14px;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 1px 8px rgba(0,0,0,.22)}
+.rhero .hk{display:block}
+.kedvenc:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media print{.kedvenc{display:none!important}}
+.kedvenc.pill.on-light{background:#fff;border:1.5px solid var(--line);box-shadow:none;margin-top:10px}
+@media(max-width:520px){.facts.three .fact b{font-size:1.12rem;gap:4px;flex-wrap:wrap}.facts.three .fact b .ic{width:1.1em;height:1.1em}.facts.three .fact .sm{font-size:.74rem;line-height:1.3}
+.swap.plain th,.swap.plain td{padding:8px 6px;font-size:.84rem}.swap.plain th{font-size:.7rem;letter-spacing:.03em}}
