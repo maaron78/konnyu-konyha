@@ -18,7 +18,9 @@
    is idempotent, so a resend after an unclear failure only duplicates a row.
    "halmaz" goes out on page load whenever the set changed since the last
    successful one, so a topic message that expired before the poller read it
-   is replaced by the next full set. */
+   is replaced by the next full set. An empty set goes out only from a device
+   that already sent one (the resync after unhearting everything), so a first
+   visit sends nothing. */
 (function () {
   var d = document, me = d.currentScript;
   var TOPIC = me && me.getAttribute('data-topic');
@@ -103,7 +105,8 @@
   }, true);
 
   paint();
-  if (JSON.stringify(list()) !== get(K_SENT)) {
+  var sent = get(K_SENT);
+  if (JSON.stringify(list()) !== sent && (list().length || sent !== null)) {
     var q = json(K_QUEUE, []).filter(function (ev) { return ev.tipus !== 'halmaz'; });
     put(K_QUEUE, JSON.stringify(q));
     enqueue({ tipus: 'halmaz', kedvencek: list() });
